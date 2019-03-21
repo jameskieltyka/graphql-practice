@@ -1,0 +1,14 @@
+schema  {
+    Query: Query
+    mutation: Mutation
+}
+
+type Query {
+    getNode(name: String!): Node
+    getNodes(clusterId: ID): [Node!]
+    getClusters(): [Cluster!]
+}
+
+type Mutation {
+    addNode(clusterId: ID, nodeName: String): Node
+}
