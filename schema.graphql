@@ -1,0 +1,58 @@
+
+type Customer {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    dob: String!
+    accounts: [Account]!
+}
+
+type Account {
+    id: ID!
+    name: String!
+    balance: Float!
+    customerId: ID!
+}
+
+type Payment {
+    id: ID!
+    description: String!
+    amount: Float!
+    toAccount: Account!
+    fromAccount: Account!
+}
+
+input Transaction {
+    amount: Float!
+    description: String
+}
+
+input Parties {
+    fromAccount: String!
+    toAccount: String!
+}
+
+input AccountInput {
+    name: String!
+    customerID: String!
+}
+
+input CustomerInput {
+    firstName: String!
+    lastName: String!
+    dob: String!
+}
+
+
+type Query {
+    getAccount(accountId: String!): Account!
+    getCustomerAccounts(customerID: String!): [Account]!
+    getCustomerDetails(customerID: String!): Customer!
+    getCustomerPayments(customerID: String!): [Payment]!
+}
+
+type Mutation {
+    createPayment(transaction: Transaction!, parties: Parties!): Payment!
+    createAccount(accountInput: AccountInput): Account!
+    createCustomer(customerInput: CustomerInput!): Customer!
+}

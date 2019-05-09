@@ -1,4 +1,0 @@
-type Cluster {
-    name: string!
-    nodes: [Node!]
-}

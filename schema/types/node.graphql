@@ -1,4 +1,0 @@
-type Node {
-    name: string!
-    clusterId: ID!
-}

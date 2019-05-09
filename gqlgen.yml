@@ -1,0 +1,21 @@
+# .gqlgen.yml example
+#
+# Refer to https://gqlgen.com/config/
+# for detailed .gqlgen.yml documentation.
+
+schema:
+- schema.graphql
+exec:
+  filename: generated.go
+model:  
+  filename: models/models_gen.go  
+  package: models
+models:  
+  Payment:
+    model: github.com/jkieltyka/gql-go-practice/models.Payment
+  Customer:
+    model: github.com/jkieltyka/gql-go-practice/models.Customer
+resolver:
+  filename: resolver/resolver.go
+  type: Resolver
+  package: resolver
