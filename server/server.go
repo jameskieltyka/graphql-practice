@@ -20,7 +20,6 @@ func main() {
 
 	http.Handle("/", handler.Playground("GraphQL playground", "/query"))
 	http.Handle("/query", handler.GraphQL(gql_go_practice.NewExecutableSchema(gql_go_practice.Config{Resolvers: &resolver.Resolver{}})))
-
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
